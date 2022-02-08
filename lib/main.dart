@@ -69,7 +69,7 @@ class _MyAppState extends State<MyApp> {
           unselectedItemColor: Colors.grey,
         ),
       ),
-      theme: AppTheme.lightTheme,
+      debugShowCheckedModeBanner: false,
     );
   }
 }

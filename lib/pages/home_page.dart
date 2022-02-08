@@ -21,6 +21,7 @@ class HomePage extends StatelessWidget {
         ),
       ),
       theme: AppTheme.lightTheme,
+      debugShowCheckedModeBanner: false,
     );
   }
 }

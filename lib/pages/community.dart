@@ -20,6 +20,7 @@ class CommunityPage extends StatelessWidget {
         ),
       ),
       theme: AppTheme.lightTheme,
+      debugShowCheckedModeBanner: false,
     );
   }
 }

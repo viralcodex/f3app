@@ -20,6 +20,7 @@ class ChallengePage extends StatelessWidget {
         ),
       ),
       theme: AppTheme.lightTheme,
+      debugShowCheckedModeBanner: false,
     );
   }
 }

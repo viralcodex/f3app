@@ -1,4 +1,4 @@
-import 'package:f3app/widget/navdraw.dart';
+import '../widget/navdraw.dart';
 import 'package:flutter/material.dart';
 import 'package:f3app/theme/apptheme.dart';
 
@@ -20,6 +20,7 @@ class StorePage extends StatelessWidget {
         ),
       ),
       theme: AppTheme.lightTheme,
+      debugShowCheckedModeBanner: false,
     );
   }
 }

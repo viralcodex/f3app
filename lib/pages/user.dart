@@ -20,6 +20,7 @@ class UserPage extends StatelessWidget {
         ),
       ),
       theme: AppTheme.lightTheme,
+      debugShowCheckedModeBanner: false,
     );
   }
 }
