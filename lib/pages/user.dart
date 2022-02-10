@@ -3,6 +3,8 @@ import 'package:f3app/theme/apptheme.dart';
 import 'package:f3app/widget/navdraw.dart';
 
 class UserPage extends StatelessWidget {
+  const UserPage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

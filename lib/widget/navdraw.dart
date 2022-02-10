@@ -1,14 +1,16 @@
-import 'package:f3app/main.dart';
+import 'package:f3app/pages/settings.dart';
 import 'package:f3app/pages/store.dart';
 import 'package:f3app/pages/user.dart';
 import 'package:flutter/material.dart';
 
 class NavDrawer extends StatelessWidget {
+  const NavDrawer({Key? key}) : super(key: key);
+
   //const ({ Key? key }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final _imgUrl =
+    const _imgUrl =
         "https://avatars.githubusercontent.com/u/79330197?s=400&u=fa3724c3eb574a0feb068a3f63acffa663676318&v=4";
     return Drawer(
       child: Material(
@@ -57,7 +59,7 @@ class NavDrawer extends StatelessWidget {
             ),
             InkWell(
               child: ListTile(
-                onTap: () => selectedItem(context, 0),
+                onTap: () => _selectedItem(context, 0),
                 leading: Icon(Icons.person),
                 iconColor: Colors.white,
                 horizontalTitleGap: 4,
@@ -71,7 +73,7 @@ class NavDrawer extends StatelessWidget {
             ),
             InkWell(
               child: ListTile(
-                onTap: () => selectedItem(context, 1),
+                onTap: () => _selectedItem(context, 1),
                 leading: Icon(Icons.money),
                 iconColor: Colors.white,
                 horizontalTitleGap: 4,
@@ -85,7 +87,7 @@ class NavDrawer extends StatelessWidget {
             ),
             InkWell(
               child: ListTile(
-                onTap: () => selectedItem(context, 2),
+                onTap: () => _selectedItem(context, 2),
                 leading: Icon(Icons.shopping_basket),
                 iconColor: Colors.white,
                 horizontalTitleGap: 4,
@@ -99,7 +101,7 @@ class NavDrawer extends StatelessWidget {
             ),
             InkWell(
               child: ListTile(
-                onTap: () => selectedItem(context, 3),
+                onTap: () => _selectedItem(context, 3),
                 leading: Icon(Icons.fitness_center),
                 iconColor: Colors.white,
                 horizontalTitleGap: 4,
@@ -113,7 +115,7 @@ class NavDrawer extends StatelessWidget {
             ),
             InkWell(
               child: ListTile(
-                onTap: () => selectedItem(context, 4),
+                onTap: () => _selectedItem(context, 4),
                 leading: Icon(Icons.settings),
                 iconColor: Colors.white,
                 horizontalTitleGap: 4,
@@ -131,11 +133,10 @@ class NavDrawer extends StatelessWidget {
     );
   }
 
-  void selectedItem(BuildContext context, int index) {
+  void _selectedItem(BuildContext context, int index) {
     Navigator.of(context).pop();
     switch (index) {
       case 0:
-      
         Navigator.of(context).push(
           MaterialPageRoute(
             builder: (context) => UserPage(),
@@ -166,7 +167,7 @@ class NavDrawer extends StatelessWidget {
       case 4:
         Navigator.of(context).push(
           MaterialPageRoute(
-            builder: (context) => UserPage(),
+            builder: (context) => Settings(),
           ),
         );
         break;
