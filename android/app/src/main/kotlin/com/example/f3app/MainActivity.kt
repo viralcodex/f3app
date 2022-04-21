@@ -1,4 +1,4 @@
-package com.example.f3app
+package com.company.f3app
 
 import io.flutter.embedding.android.FlutterActivity
 

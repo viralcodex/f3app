@@ -1,33 +1,34 @@
 {
   "project_info": {
-    "project_number": "247641886893",
-    "project_id": "f3-fitness-app",
-    "storage_bucket": "f3-fitness-app.appspot.com"
+    "project_number": "577389139117",
+    "firebase_url": "https://f3-app-eb5f2-default-rtdb.firebaseio.com",
+    "project_id": "f3-app-eb5f2",
+    "storage_bucket": "f3-app-eb5f2.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:247641886893:android:4abaa9c2b5192f9051b624",
+        "mobilesdk_app_id": "1:577389139117:android:ad8d4cb25c03d9354f6224",
         "android_client_info": {
-          "package_name": "com.example.f3app"
+          "package_name": "com.company.f3app"
         }
       },
       "oauth_client": [
         {
-          "client_id": "247641886893-jag7h17bodg88olmkt18ss9nmoho5jpl.apps.googleusercontent.com",
+          "client_id": "577389139117-40mgkg2lvu05odjfck1i5vo180hi8ppa.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAhuP8_wtrvXv9n6eaIxOi5VAlg6wHw2iA"
+          "current_key": "AIzaSyDc6K7pZrRavyGZPW6FO66YpVX1CGy0xRc"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "247641886893-jag7h17bodg88olmkt18ss9nmoho5jpl.apps.googleusercontent.com",
+              "client_id": "577389139117-40mgkg2lvu05odjfck1i5vo180hi8ppa.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

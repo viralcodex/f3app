@@ -9,7 +9,7 @@ class ChallengePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        drawer: NavDrawer(),
+        //drawer: NavDrawer(),
         appBar: AppBar(
           title: const Text(
             "Challenge Page",

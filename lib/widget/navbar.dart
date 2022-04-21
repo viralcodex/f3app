@@ -4,12 +4,13 @@ import 'package:f3app/pages/community.dart';
 import 'package:f3app/pages/user.dart';
 import 'package:f3app/pages/store.dart';
 import 'package:f3app/pages/challenge.dart';
+import 'package:lazy_load_indexed_stack/lazy_load_indexed_stack.dart';
 
 class NavBar extends StatefulWidget {
   const NavBar({Key? key}) : super(key: key);
 
   @override
-  _NavBarState createState() => _NavBarState(); 
+  _NavBarState createState() => _NavBarState();
 }
 
 class _NavBarState extends State<NavBar> {
@@ -25,7 +26,7 @@ class _NavBarState extends State<NavBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: IndexedStack(
+      body: LazyLoadIndexedStack(
         index: _currentIndex,
         children: screens,
       ),

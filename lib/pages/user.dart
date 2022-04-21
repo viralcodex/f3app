@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:f3app/theme/apptheme.dart';
 import 'package:f3app/widget/navdraw.dart';
 
@@ -9,7 +11,7 @@ class UserPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        drawer: NavDrawer(),
+        //drawer: NavDrawer(),
         appBar: AppBar(
           title: Text(
             "User Page",
@@ -20,6 +22,16 @@ class UserPage extends StatelessWidget {
           centerTitle: true,
           backgroundColor: Colors.white,
         ),
+        body: ListView(children: [
+          InkWell(
+            onTap: () {
+              FirebaseAuth.instance.signOut();
+            },
+            child: ListTile(
+              title: Text("Logout"),
+            ),
+          ),
+        ]),
       ),
       theme: AppTheme.lightTheme,
       debugShowCheckedModeBanner: false,

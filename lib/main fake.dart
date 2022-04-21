@@ -25,15 +25,27 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   @override
+  int _selectedIndex = 0;
+  List<Widget> _widgetOptions = [
+    NavDrawer(),
+    NavBar(),
+  ];
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        //drawer: NavDrawer(),
+        drawer: _widgetOptions[_selectedIndex],
         body: StreamBuilder<User?>(
           stream: FirebaseAuth.instance.authStateChanges(),
           builder: (context, snapshot) {
             if (snapshot.hasData) {
-              return NavBar();
+              return _widgetOptions[1];
             } else {
               return LoginPage();
             }
