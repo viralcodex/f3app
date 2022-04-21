@@ -10,7 +10,7 @@ import 'pages/user.dart';
 import 'pages/store.dart';
 import 'pages/challenge.dart';
 import 'widget/navdraw.dart';
-import 'package:f3app/theme/apptheme.dart';
+import 'package:f3app/theme/apptheme.dart'; 
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
