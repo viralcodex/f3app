@@ -6,66 +6,44 @@ import 'package:f3app/pages/store.dart';
 import 'package:f3app/pages/challenge.dart';
 import 'package:lazy_load_indexed_stack/lazy_load_indexed_stack.dart';
 
-class NavBar extends StatefulWidget {
-  const NavBar({Key? key}) : super(key: key);
+class NavBar extends StatelessWidget {
+  final currentIndex;
 
-  @override
-  _NavBarState createState() => _NavBarState();
-}
+  ValueChanged<int> onClicked;
 
-class _NavBarState extends State<NavBar> {
-  int _currentIndex = 0; //selecting NavBar items
-  final List<Widget> screens = [
-    HomePage(),
-    CommunityPage(),
-    StorePage(),
-    ChallengePage(),
-    UserPage(),
-  ];
+  NavBar({this.currentIndex, required this.onClicked});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: LazyLoadIndexedStack(
-        index: _currentIndex,
-        children: screens,
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        currentIndex: _currentIndex,
-        onTap: (index) {
-          setState(
-            () {
-              _currentIndex = index;
-            },
-          );
-        },
-        //updating selected items' index
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: "Home",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.group),
-            label: "Community",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.shop),
-            label: "Store",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.leaderboard),
-            label: "Challenges",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: "Person",
-          ),
-        ],
-        selectedItemColor: Colors.black,
-        unselectedItemColor: Colors.grey,
-      ),
+    return BottomNavigationBar(
+      type: BottomNavigationBarType.fixed,
+      currentIndex: currentIndex,
+      onTap: onClicked,
+      //updating selected items' index
+      items: const [
+        BottomNavigationBarItem(
+          icon: Icon(Icons.home),
+          label: "Home",
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.group),
+          label: "Friends",
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.shop),
+          label: "Store",
+        ),
+        // BottomNavigationBarItem(
+        //   icon: Icon(Icons.leaderboard),
+        //   label: "Challenges",
+        // ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.person),
+          label: "Profile",
+        ),
+      ],
+      selectedItemColor: Colors.black,
+      unselectedItemColor: Colors.grey,
     );
   }
 }

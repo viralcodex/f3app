@@ -13,7 +13,7 @@ class UserPage extends StatelessWidget {
       home: Scaffold(
         //drawer: NavDrawer(),
         appBar: AppBar(
-          title: Text(
+          title: const Text(
             "User Page",
             style: TextStyle(
               color: Colors.black,
@@ -27,7 +27,7 @@ class UserPage extends StatelessWidget {
             onTap: () {
               FirebaseAuth.instance.signOut();
             },
-            child: ListTile(
+            child: const ListTile(
               title: Text("Logout"),
             ),
           ),

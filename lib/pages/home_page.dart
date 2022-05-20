@@ -1,15 +1,20 @@
-import 'dart:math';
-
+import 'package:f3app/pages/challenge.dart';
 import 'package:f3app/widget/navbar.dart';
 import 'package:flutter/material.dart';
 import 'package:f3app/widget/navdraw.dart';
 import 'package:f3app/theme/apptheme.dart';
+import '../widget/routing.dart';
 
 //import '../widget/fitnesscard.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -34,8 +39,9 @@ class HomePage extends StatelessWidget {
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
               FitnessCards(),
               Progress(),
-              Achievements(),
-              Challenges(),
+              Coins(),
+              Achievements(context),
+              Challenges(context),
             ]),
           ),
         ),
@@ -96,7 +102,7 @@ Widget Progress() => Material(
                 padding: const EdgeInsets.only(top: 10, bottom: 10),
                 child: Row(
                   children: [
-                    Text(" Today's Progress",
+                    Text("Today's Progress",
                         style: TextStyle(fontWeight: FontWeight.bold)),
                     Icon(Icons.arrow_forward_ios_outlined, size: 18),
                   ],
@@ -177,7 +183,96 @@ Widget Progress() => Material(
       ),
     );
 
-Widget Achievements() => Padding(
+Widget Coins() => Material(
+      child: Column(
+        children: [
+          Container(
+            alignment: Alignment.center,
+            child: Padding(
+              padding: const EdgeInsets.only(top: 10),
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.black12,
+                  borderRadius: BorderRadius.circular(4),
+                ),
+                padding: const EdgeInsets.all(10.0),
+                height: 150,
+                width: 380,
+                child: Column(
+                  children: [
+                    Container(
+                      alignment: Alignment.topLeft,
+                      child: Text(
+                        'Coins Earned',
+                        style: TextStyle(fontWeight: FontWeight.w700),
+                      ),
+                    ),
+                    Container(
+                      padding: EdgeInsets.only(top: 10),
+                      alignment: Alignment.center,
+                      child: Text(
+                        '32.10',
+                        style: TextStyle(
+                            fontSize: 48, fontWeight: FontWeight.w700),
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            ),
+          ),
+          Container(
+            alignment: Alignment.center,
+            child: Padding(
+              padding: EdgeInsets.only(top: 10),
+              child: Padding(
+                padding: EdgeInsets.all(10),
+                child: InkWell(
+                  onTap: () {},
+                  child: Container(
+                    padding: EdgeInsets.all(10),
+                    height: 70,
+                    width: 380,
+                    decoration: BoxDecoration(
+                      color: Colors.black12,
+                      borderRadius: BorderRadius.circular(4),
+                    ),
+                    child: Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Container(
+                              //alignment: Alignment.topLeft,
+                              child: Text(
+                                'LEVEL 1',
+                                style: TextStyle(fontWeight: FontWeight.w700),
+                              ),
+                            ),
+                            Container(
+                              child: Text('Know More'),
+                            )
+                          ],
+                        ),
+                        Container(
+                          padding: EdgeInsets.only(top: 10),
+                          alignment: Alignment.bottomLeft,
+                          child: Text(
+                              'Reach 2 coins more TODAY and upgrade to level 2',
+                              style: TextStyle(fontSize: 12.5)),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+
+Widget Achievements(BuildContext context) => Padding(
       padding: const EdgeInsets.all(8.0),
       child: Material(
         child: Container(
@@ -199,7 +294,7 @@ Widget Achievements() => Padding(
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 10, left: 5),
+                padding: const EdgeInsets.only(top: 10),
                 child: SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   physics: const BouncingScrollPhysics(),
@@ -263,7 +358,7 @@ Widget Achievements() => Padding(
       ),
     );
 
-Widget Challenges() => Padding(
+Widget Challenges(BuildContext context) => Padding(
       padding: const EdgeInsets.all(8.0),
       child: Material(
         child: Container(
@@ -272,7 +367,17 @@ Widget Challenges() => Padding(
             children: [
               InkWell(
                 borderRadius: BorderRadius.circular(4),
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return ChallengePage();
+                        // Routing(3);
+                      },
+                    ),
+                  );
+                },
                 child: Padding(
                   padding: const EdgeInsets.only(top: 10, bottom: 10),
                   child: Row(
@@ -285,7 +390,7 @@ Widget Challenges() => Padding(
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 10, left: 5),
+                padding: const EdgeInsets.only(top: 10),
                 child: SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   physics: const BouncingScrollPhysics(),

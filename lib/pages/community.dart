@@ -20,6 +20,7 @@ class CommunityPage extends StatelessWidget {
           centerTitle: true,
           backgroundColor: Colors.white,
         ),
+        
       ),
       theme: AppTheme.lightTheme,
       debugShowCheckedModeBanner: false,
