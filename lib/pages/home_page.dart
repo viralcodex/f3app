@@ -339,7 +339,7 @@ Widget Challenges() => Padding(
                           style: TextStyle(fontWeight: FontWeight.bold),
                         ),
                       ),
-                    ],
+                    ], //children
                   ),
                 ),
               )
