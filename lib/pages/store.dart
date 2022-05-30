@@ -1,6 +1,3 @@
-import 'package:flutter/gestures.dart';
-
-import '../widget/navdraw.dart';
 import 'package:flutter/material.dart';
 import 'package:f3app/theme/apptheme.dart';
 
@@ -25,13 +22,13 @@ class StorePage extends StatelessWidget {
         body: SingleChildScrollView(
           physics: PageScrollPhysics(),
           child: Column(children: [
-            Deals(),
-            Popular(),
-            TopBrands(),
-            SuperSavers(),
-            FitnessProducts(),
-            Nutrition(),
-            Wellness(),
+            Deals(context),
+            Popular(context),
+            TopBrands(context),
+            SuperSavers(context),
+            FitnessProducts(context),
+            Nutrition(context),
+            Wellness(context),
           ]),
         ),
       ),
@@ -41,7 +38,7 @@ class StorePage extends StatelessWidget {
   }
 }
 
-Widget Deals() => Padding(
+Widget Deals(BuildContext context) => Padding(
       padding: const EdgeInsets.all(8.0),
       child: Material(
         child: Container(
@@ -62,57 +59,82 @@ Widget Deals() => Padding(
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(top: 10),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                physics: const BouncingScrollPhysics(),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Container(
-                      decoration: BoxDecoration(
-                        color: Colors.black12,
-                        borderRadius: BorderRadius.circular(4),
-                      ),
-                      alignment: Alignment.topCenter,
-                      padding: const EdgeInsets.all(8.0),
-                      height: 100,
-                      width: 120,
-                      child: Text(
-                        'Deal 1',
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                      ),
-                    ),
                     Padding(
-                      padding: EdgeInsets.all(3),
-                    ),
-                    Container(
-                      decoration: BoxDecoration(
-                        color: Colors.black12,
-                        borderRadius: BorderRadius.circular(4),
-                      ),
-                      alignment: Alignment.topCenter,
-                      padding: const EdgeInsets.all(8.0),
-                      height: 100,
-                      width: 120,
-                      child: Text(
-                        'Deal 2',
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.all(3),
-                    ),
-                    Container(
-                      decoration: BoxDecoration(
-                        color: Colors.black12,
-                        borderRadius: BorderRadius.circular(4),
-                      ),
-                      alignment: Alignment.topCenter,
-                      padding: const EdgeInsets.all(8.0),
-                      height: 100,
-                      width: 120,
-                      child: Text(
-                        'Deal 3',
-                        style: TextStyle(fontWeight: FontWeight.bold),
+                      padding: const EdgeInsets.only(top: 10),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Container(
+                            decoration: BoxDecoration(
+                              color: Colors.black12,
+                              borderRadius: BorderRadius.circular(4),
+                            ),
+                            alignment: Alignment.topCenter,
+                            padding: const EdgeInsets.all(8.0),
+                            height: 100,
+                            width: 120,
+                            child: Text(
+                              'Deal 1',
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.all(3),
+                          ),
+                          Container(
+                            decoration: BoxDecoration(
+                              color: Colors.black12,
+                              borderRadius: BorderRadius.circular(4),
+                            ),
+                            alignment: Alignment.topCenter,
+                            padding: const EdgeInsets.all(8.0),
+                            height: 100,
+                            width: 120,
+                            child: Text(
+                              'Deal 2',
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.all(3),
+                          ),
+                          Container(
+                            decoration: BoxDecoration(
+                              color: Colors.black12,
+                              borderRadius: BorderRadius.circular(4),
+                            ),
+                            alignment: Alignment.topCenter,
+                            padding: const EdgeInsets.all(8.0),
+                            height: 100,
+                            width: 120,
+                            child: Text(
+                              'Deal 3',
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.all(3),
+                          ),
+                          Container(
+                            decoration: BoxDecoration(
+                              color: Colors.black12,
+                              borderRadius: BorderRadius.circular(4),
+                            ),
+                            alignment: Alignment.topCenter,
+                            padding: const EdgeInsets.all(8.0),
+                            height: 100,
+                            width: 120,
+                            child: Text(
+                              'Deal 4',
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ],
@@ -124,7 +146,7 @@ Widget Deals() => Padding(
       ),
     );
 
-Widget Popular() => Padding(
+Widget Popular(BuildContext context) => Padding(
       padding: const EdgeInsets.all(8.0),
       child: Material(
         child: Container(
@@ -207,7 +229,7 @@ Widget Popular() => Padding(
       ),
     );
 
-Widget TopBrands() => Padding(
+Widget TopBrands(BuildContext context) => Padding(
       padding: const EdgeInsets.all(8.0),
       child: Material(
         child: Container(
@@ -290,7 +312,7 @@ Widget TopBrands() => Padding(
       ),
     );
 
-Widget SuperSavers() => Padding(
+Widget SuperSavers(BuildContext context) => Padding(
       padding: const EdgeInsets.all(8.0),
       child: Material(
         child: Container(
@@ -373,7 +395,7 @@ Widget SuperSavers() => Padding(
       ),
     );
 
-Widget FitnessProducts() => Padding(
+Widget FitnessProducts(BuildContext context) => Padding(
       padding: const EdgeInsets.all(8.0),
       child: Material(
         child: Container(
@@ -439,7 +461,7 @@ Widget FitnessProducts() => Padding(
       ),
     );
 
-Widget Nutrition() => Padding(
+Widget Nutrition(BuildContext context) => Padding(
       padding: const EdgeInsets.all(8.0),
       child: Material(
         child: Container(
@@ -505,7 +527,7 @@ Widget Nutrition() => Padding(
       ),
     );
 
-Widget Wellness() => Padding(
+Widget Wellness(BuildContext context) => Padding(
       padding: const EdgeInsets.all(8.0),
       child: Material(
         child: Container(

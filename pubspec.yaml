@@ -40,6 +40,10 @@ dependencies:
   lazy_load_indexed_stack: ^0.1.3
   # email and password validator
   email_validator: ^2.0.1
+  sensors_plus: ^1.3.1
+  jiffy: ^5.0.0
+  pedometer: ^3.0.0
+  intl: ^0.17.0
 
 dev_dependencies:
   flutter_test:
@@ -62,6 +66,11 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
+
+  assets:
+
+    - assets/pics/
+
   fonts:
     - family: Poppins
       fonts:

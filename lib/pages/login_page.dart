@@ -3,7 +3,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'signup_page.dart';
 import '../main.dart';
 
 class LoginPage extends StatefulWidget {
@@ -23,12 +22,15 @@ class _LoginPageState extends State<LoginPage> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
 
+  @override
   void dispose() {
     emailController.dispose();
     passwordController.dispose();
 
     super.dispose();
   }
+
+  double height = AppBar().preferredSize.height;
 
   @override
   Widget build(BuildContext context) {
@@ -39,6 +41,12 @@ class _LoginPageState extends State<LoginPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Padding(padding: EdgeInsets.only(top: height)),
+            Image.asset(
+              'assets/pics/3249205.png',
+              height: 300,
+              width: 300,
+            ),
             Container(
               padding: const EdgeInsets.fromLTRB(0, 50, 0, 0),
               child: Text(
@@ -50,7 +58,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(0, 50, 0, 25),
+              padding: const EdgeInsets.fromLTRB(0, 25, 0, 40),
               child: Column(
                 children: [
                   TextFormField(
@@ -63,7 +71,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     autovalidateMode: AutovalidateMode.onUserInteraction,
                     validator: (email) =>
-                        email != null && !EmailValidator.validate(email)
+                        email != null && !EmailValidator.validate(email.trim())
                             ? 'Enter a valid Email'
                             : null,
                   ),
@@ -90,6 +98,7 @@ class _LoginPageState extends State<LoginPage> {
               // ignore: sized_box_for_whitespace
               child: Container(
                 width: 90,
+                height: 50,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
@@ -103,10 +112,11 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
             ),
+            Padding(padding: EdgeInsets.only(top: 10)),
             RichText(
               text: TextSpan(
-                style: TextStyle(fontSize: 15, color: Colors.black),
-                text: 'New Here? ',
+                style: TextStyle(fontSize: 20, color: Colors.black),
+                text: "Don't have an Account? ",
                 children: [
                   TextSpan(
                       recognizer: TapGestureRecognizer()
@@ -142,7 +152,7 @@ class _LoginPageState extends State<LoginPage> {
         password: passwordController.text.trim(),
       );
     } on FirebaseAuthException catch (e) {
-      print(e);
+      //print(e);
     }
 
     navigatorKey.currentState!.popUntil((route) => route.isFirst);

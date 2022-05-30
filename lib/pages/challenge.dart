@@ -1,8 +1,5 @@
-import 'package:f3app/widget/navbar.dart';
-import 'package:f3app/widget/routing.dart';
 import 'package:flutter/material.dart';
 import 'package:f3app/theme/apptheme.dart';
-import 'package:f3app/widget/navdraw.dart';
 
 class ChallengePage extends StatelessWidget {
   ChallengePage({Key? key}) : super(key: key);

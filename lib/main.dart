@@ -1,23 +1,14 @@
-import 'package:f3app/pages/login_page.dart';
-import 'package:f3app/widget/navbar.dart';
 import 'package:f3app/widget/routing.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'pages/authpage.dart';
-import 'pages/home_page.dart';
-import 'pages/login_page.dart';
-import 'pages/community.dart';
-import 'pages/user.dart';
-import 'pages/store.dart';
-import 'pages/challenge.dart';
-import 'widget/navdraw.dart';
 import 'package:f3app/theme/apptheme.dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 final navigatorKey = GlobalKey<NavigatorState>();
@@ -42,7 +33,7 @@ class _MyAppState extends State<MyApp> {
               return Routing();
               // Routing(0);
             } else {
-              return AuthPage();
+              return const AuthPage();
             }
           },
         ),

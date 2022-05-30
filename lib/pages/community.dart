@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:f3app/theme/apptheme.dart';
-import 'package:f3app/widget/navdraw.dart';
 
 class CommunityPage extends StatelessWidget {
   const CommunityPage({Key? key}) : super(key: key);
@@ -20,7 +19,6 @@ class CommunityPage extends StatelessWidget {
           centerTitle: true,
           backgroundColor: Colors.white,
         ),
-        
       ),
       theme: AppTheme.lightTheme,
       debugShowCheckedModeBanner: false,
