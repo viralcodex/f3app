@@ -9,6 +9,7 @@ import 'package:f3app/theme/apptheme.dart';
 import '../widget/routing.dart';
 // import 'steps_counter.dart2';
 import '../pages/steps.dart';
+import 'package:f3app/globals.dart' as globals;
 //import '../widget/fitnesscard.dart';
 
 final User user = auth.currentUser!;
@@ -57,7 +58,7 @@ class _HomePageState extends State<HomePage> {
             padding: const EdgeInsets.only(top: 10),
             child: Column(children: [
               StepsCounter(context),
-              FitnessCards(context),
+              // FitnessCards(context),
               Progress(context),
               Coins(context),
               Achievements(context),
@@ -115,42 +116,42 @@ class _HomePageState extends State<HomePage> {
         ),
       );
 
-  Widget FitnessCards(BuildContext context) => Padding(
-        padding: const EdgeInsets.only(top: 10),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Container(
-              decoration: BoxDecoration(
-                color: Colors.black12,
-                borderRadius: BorderRadius.circular(4),
-              ),
-              alignment: Alignment.topCenter,
-              padding: const EdgeInsets.all(8.0),
-              height: MediaQuery.of(context).size.width * .20,
-              width: MediaQuery.of(context).size.width * .45,
-              child: Text(
-                'Steps Count',
-                style: TextStyle(fontWeight: FontWeight.bold),
-              ),
-            ),
-            Container(
-              decoration: BoxDecoration(
-                color: Colors.black12,
-                borderRadius: BorderRadius.circular(4),
-              ),
-              alignment: Alignment.topCenter,
-              padding: const EdgeInsets.all(8.0),
-              height: MediaQuery.of(context).size.width * .20,
-              width: MediaQuery.of(context).size.width * .45,
-              child: Text(
-                'Calories Burned',
-                style: TextStyle(fontWeight: FontWeight.bold),
-              ),
-            ),
-          ],
-        ),
-      );
+  // Widget FitnessCards(BuildContext context) => Padding(
+  //       padding: const EdgeInsets.only(top: 10),
+  //       child: Row(
+  //         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+  //         children: [
+  //           Container(
+  //             decoration: BoxDecoration(
+  //               color: Colors.black12,
+  //               borderRadius: BorderRadius.circular(4),
+  //             ),
+  //             alignment: Alignment.topCenter,
+  //             padding: const EdgeInsets.all(8.0),
+  //             height: MediaQuery.of(context).size.width * .20,
+  //             width: MediaQuery.of(context).size.width * .45,
+  //             child: Text(
+  //               'Steps Count',
+  //               style: TextStyle(fontWeight: FontWeight.bold),
+  //             ),
+  //           ),
+  //           Container(
+  //             decoration: BoxDecoration(
+  //               color: Colors.black12,
+  //               borderRadius: BorderRadius.circular(4),
+  //             ),
+  //             alignment: Alignment.topCenter,
+  //             padding: const EdgeInsets.all(8.0),
+  //             height: MediaQuery.of(context).size.width * .20,
+  //             width: MediaQuery.of(context).size.width * .45,
+  //             child: Text(
+  //               'Calories Burned',
+  //               style: TextStyle(fontWeight: FontWeight.bold),
+  //             ),
+  //           ),
+  //         ],
+  //       ),
+  //     );
 
   Widget Progress(BuildContext context) => Material(
         child: Container(
@@ -274,6 +275,7 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           children: [
             Container(
+              padding: EdgeInsets.only(top: 10),
               alignment: Alignment.center,
               child: Padding(
                 padding: const EdgeInsets.only(left: 16, right: 16),
@@ -304,7 +306,7 @@ class _HomePageState extends State<HomePage> {
                           builder: (context, snapshot) {
                             if (snapshot.hasData) {
                               var output = snapshot.data!.data();
-                              var coins = output!['coins'];
+                              var coins = output!['totcoins'];
                               return Text(
                                 '$coins',
                                 style: TextStyle(
@@ -351,7 +353,7 @@ class _HomePageState extends State<HomePage> {
                                   builder: (context, snapshot) {
                                     if (snapshot.hasData) {
                                       var output = snapshot.data!.data();
-                                      var level = output!['level'];
+                                      var level = output!['totlevel'];
                                       return Text(
                                         'Level $level',
                                         style: TextStyle(

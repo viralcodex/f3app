@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:pedometer/pedometer.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:f3app/theme/apptheme.dart';
+import 'package:f3app/globals.dart' as globals;
 
 class Steps extends StatefulWidget {
   @override
@@ -24,11 +25,9 @@ class _StepsState extends State<Steps> {
   int todaySteps = 0;
   double calories = 0;
   double distance = 0;
-  double totdist = 0;
-  double totcalorie = 0;
-  int totcoins = 0;
+
   int coins = 0, coin = 0, counter = 1000;
-  int level = 0, totlevel = 0;
+  int level = 0;
   int i = 1, j = 1, flag = 0;
 
   @override
@@ -76,7 +75,9 @@ class _StepsState extends State<Steps> {
 
       final dailystepsref =
           FirebaseFirestore.instance.collection('daywise-steps').doc(uid);
-      await dailystepsref.set({'$formattedDate $day': currSteps});
+      await dailystepsref.set(
+          {'$formattedDate $day': currSteps - savedStepsCount},
+          SetOptions(merge: true));
 
       lastDaySaved = todayDayNo;
       savedStepsCount = currSteps;
@@ -96,24 +97,29 @@ class _StepsState extends State<Steps> {
       calories = calorieCounter(todaySteps);
       distance = distCounter(todaySteps);
       coins = coinCounter(todaySteps);
+
       //print(_steps);
     });
-    totlevel = totlevel + level;
-    totcoins = totcoins + coins;
-    totdist = totdist + distance;
-    totcalorie = totcalorie + calories;
+    globals.totsteps = globals.totsteps + currSteps;
+    globals.totlevel = globals.totlevel + level;
+    globals.totcoins = globals.totcoins + coins;
+    globals.totdist = globals.totdist + distance;
+    globals.totcalorie = globals.totcalorie + calories;
     final doc3User = FirebaseFirestore.instance.collection('steps').doc(uid);
-    await doc3User.update({
-      'calories': calories,
-      'coins': coins,
-      'currSteps': todaySteps,
-      'distance': distance,
-      'level': level,
-      'totcalorie': totcalorie,
-      'totcoins': totcoins,
-      'totdist': totdist,
-      'totlevel': totlevel,
-    });
+    await doc3User.update(
+      {
+        'calories': calories,
+        'coins': coins,
+        'currSteps': todaySteps,
+        'distance': distance,
+        'level': level,
+        'totcalorie': globals.totcalorie,
+        'totcoins': globals.totcoins,
+        'totdist': globals.totdist,
+        'totlevel': globals.totlevel,
+        'totsteps': globals.totsteps,
+      },
+    );
   }
 
   double calorieCounter(int steps) {
